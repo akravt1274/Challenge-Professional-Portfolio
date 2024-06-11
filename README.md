@@ -7,7 +7,7 @@ In this Challenge I built a portfolio page where I applied the core skills I've 
 **Note:** As I don't have enough web applications to showcase at this point, I used placeholder images and names. I added links to Challenge 1 and Challenge 2 deployed applications.
 
 ## Screenshot
-![alt text](image.png)
+![alt text](images/image.png)
 
 ## User Story
 
