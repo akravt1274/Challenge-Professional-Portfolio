@@ -1,0 +1,234 @@
+:root {
+    --item-padding: 15px;
+    --text-color: rgb(241, 118, 228);
+    --blue-color: rgb(55, 68, 128);
+    --text-shadow: 2px 2px rgb(247, 219, 247);
+    --transparent: transparent;
+}
+* {
+    box-sizing: border-box;
+    background-color: rgb(206, 249, 255);;
+}
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: auto;
+    background-color: white;
+}
+/* Setting main layout */
+.main-layout {
+    display: flexbox;
+    flex-direction: column;
+    gap: 1em;
+}
+.main-width {
+    width: 100%;
+    max-width: 1024px;
+    margin: auto;
+}
+h2 {
+    width: 150px; 
+    padding: 0 10px;
+    text-align: end;
+    color: var(--blue-color);   
+}
+/* Setting header, footer and sections */
+.section-header,
+.section-about,
+.section-portfolio,
+.section-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;    
+}
+.section-portfolio > * {
+    flex-basis: 150px;
+}
+.section-portfolio >*:last-child {
+    flex-grow: 1;
+}
+.section-header > *:last-child{
+    flex-grow: 1;
+    align-content: end;
+}
+.section-footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;    
+}
+.section-footer h4, 
+.section-footer span {
+    margin: 0;
+    padding: 5px 5px;
+    font-size: 12px;
+}
+.section-header,
+.section-footer {
+    background-color: var(--blue-color);
+}
+.about-items,
+.contact-items {
+    flex: 1 0 150px;
+    align-self: center;
+}
+.about-items p {
+    padding: 0 var(--item-padding);
+}
+.contact-items ul {
+    padding: 0;
+}
+.contact-items {
+    display: inline-flex;
+    justify-content: center
+}
+.section-header >*,
+.section-footer > * {
+    background: var(--transparent);
+    color: var(--text-color);
+}
+.logo {
+    width: 100px;
+    height: 100px;
+}
+/* Setting cards - porfolio section */
+.portfolio-cards {
+     display: inline-flex;
+     gap: 10px;
+     flex-wrap: wrap;
+     justify-content: center;
+     justify-items: center;
+ }
+section .card {
+    position: relative;
+    padding: 10 10 0;
+}
+.card {
+    padding: 10 10 0;
+}
+.card h3 {
+    margin: 0;
+    color: var(--blue-color);
+}
+.card p {
+    position: absolute;
+    padding: 0 5px;
+}
+
+section {
+    margin-bottom: 10px;
+}
+img {
+    width: auto;
+    height: 200px;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+.border-left {
+    margin-top: 10px;
+    border-left: 2px solid var(--blue-color);
+}
+
+/* Setting links - header & contact sections */
+nav {
+    font-size: 20px;
+    padding-right: 20px;
+    background: var(--transparent);
+}
+ul {
+    list-style-type: none;
+}
+.section-header ul {
+    float: right;
+    background: var(--transparent);
+}
+ul li {
+    display: inline-block;
+    margin-left: var(--item-padding);
+    background: var(--transparent);
+    padding: 0 60;
+}
+nav ul li {
+    padding: 0;
+}
+li a {
+    text-decoration: none;
+    font-weight: bold;    
+    color: var(--blue-color);
+    background: var(--transparent);
+}
+nav li a {
+    color: var(--text-color);
+}
+a:hover {
+    background-color: rgb(247, 219, 247);
+    cursor: pointer;
+}
+
+#hero-image img {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 25px;
+    background-size: cover;
+    background-position: center;
+}
+
+@media screen and (max-width:768px) {
+    .section-header,
+    .section-about,
+    .section-portfolio,
+    .section-footer {
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 0;
+        margin: 0;
+    }
+    .section-contact {
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin: 0;
+    }
+    .border-left {
+        border: none;
+        margin: auto;
+    }
+    .section-header h2,
+    .section-about h2,
+    .section-portfolio h2,
+    .section-footer h4,
+    .section-footer span {
+        flex-basis: 0;
+        margin: 0;
+        align-self: center;
+    }
+    .contact-items{
+        flex: 0;
+        align-self: center;
+        padding: 0 0 10px;
+    }
+    h1, h2 {
+        margin: 0;
+        padding: 10px 0 0 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/*  */
+@keyframes scale-image {
+    from {
+        width: auto;
+        height: 200px;
+    }
+    to {
+        width: auto;
+        height: 250px;
+    }
+}
+.card:hover img {
+    animation-name: scale-image;
+    animation-duration: 2s;
+}
