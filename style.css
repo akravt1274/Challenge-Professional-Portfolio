@@ -1,3 +1,4 @@
+/* Declaring global CSS variables */
 :root {
     --item-padding: 15px;
     --text-color: rgb(241, 118, 228);
@@ -5,6 +6,7 @@
     --text-shadow: 2px 2px rgb(247, 219, 247);
     --transparent: transparent;
 }
+/* Declaring universal and body properties */
 * {
     box-sizing: border-box;
     background-color: rgb(206, 249, 255);;
@@ -15,7 +17,8 @@ body {
     padding: auto;
     background-color: white;
 }
-/* Setting main layout */
+
+/* Setting main layout to flexbox container */
 .main-layout {
     display: flexbox;
     flex-direction: column;
@@ -26,13 +29,58 @@ body {
     max-width: 1024px;
     margin: auto;
 }
-h2 {
-    width: 150px; 
-    padding: 0 10px;
-    text-align: end;
-    color: var(--blue-color);   
+
+/* Setting header */
+.photo {
+    width: 100px;
+    height: 100px;
 }
-/* Setting header, footer and sections */
+#hero-image img {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 25px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Setting links in the header and Contact section*/
+nav {
+    font-size: 20px;
+    padding-right: 20px;
+    background: var(--transparent);
+}
+ul {
+    list-style-type: none;
+}
+ul li {
+    display: inline-block;
+    margin-left: var(--item-padding);
+    background: var(--transparent);
+    padding: 0 60;
+}
+nav ul li {
+    padding: 0;
+}
+li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--blue-color);
+    background: var(--transparent);
+}
+nav li a {
+    color: var(--text-color);
+}
+a:hover {
+    background-color: rgb(247, 219, 247);
+    cursor: pointer;
+}
+/* Setting links in the header to float to the right side */
+.section-header ul {
+    float: right;
+    background: var(--transparent);
+}
+
+/* Setting elements to flex items inside header, footer, portfolio and contact sections  */
 .section-header,
 .section-about,
 .section-portfolio,
@@ -41,12 +89,6 @@ h2 {
     flex-wrap: wrap;
     gap: 1em;
     align-items: center;    
-}
-.section-portfolio > * {
-    flex-basis: 150px;
-}
-.section-portfolio >*:last-child {
-    flex-grow: 1;
 }
 .section-header > *:last-child{
     flex-grow: 1;
@@ -68,6 +110,17 @@ h2 {
 .section-footer {
     background-color: var(--blue-color);
 }
+.section-header>*,
+.section-footer>* {
+    background: var(--transparent);
+    color: var(--text-color);
+}
+.section-portfolio>* {
+    flex-basis: 150px;
+}
+.section-portfolio>*:last-child {
+    flex-grow: 1;
+}
 .about-items,
 .contact-items {
     flex: 1 0 150px;
@@ -83,16 +136,17 @@ h2 {
     display: inline-flex;
     justify-content: center
 }
-.section-header >*,
-.section-footer > * {
-    background: var(--transparent);
-    color: var(--text-color);
+
+/* Setting cards inside Porfolio section */
+h2 {
+    width: 150px;
+    padding: 0 10px;
+    text-align: end;
+    color: var(--blue-color);
 }
-.logo {
-    width: 100px;
-    height: 100px;
+section {
+    margin-bottom: 10px;
 }
-/* Setting cards - porfolio section */
 .portfolio-cards {
      display: inline-flex;
      gap: 10px;
@@ -115,15 +169,6 @@ section .card {
     position: absolute;
     padding: 0 5px;
 }
-
-section {
-    margin-bottom: 10px;
-}
-img {
-    width: auto;
-    height: 200px;
-}
-
 .card:hover {
     cursor: pointer;
 }
@@ -132,48 +177,15 @@ img {
     border-left: 2px solid var(--blue-color);
 }
 
-/* Setting links - header & contact sections */
-nav {
-    font-size: 20px;
-    padding-right: 20px;
-    background: var(--transparent);
+/* Setting size to all cards (images) */
+img {
+    width: 200px;
+    height: 200px;
 }
-ul {
-    list-style-type: none;
-}
-.section-header ul {
-    float: right;
-    background: var(--transparent);
-}
-ul li {
-    display: inline-block;
-    margin-left: var(--item-padding);
-    background: var(--transparent);
-    padding: 0 60;
-}
-nav ul li {
-    padding: 0;
-}
-li a {
-    text-decoration: none;
-    font-weight: bold;    
-    color: var(--blue-color);
-    background: var(--transparent);
-}
-nav li a {
-    color: var(--text-color);
-}
-a:hover {
-    background-color: rgb(247, 219, 247);
-    cursor: pointer;
-}
-
-#hero-image img {
-    width: 100%;
-    height: 300px;
-    margin-bottom: 25px;
-    background-size: cover;
-    background-position: center;
+/* Setting size to the first image to be larger */
+#first-img {
+    width: 250px;
+    height: 250px;
 }
 
 @media screen and (max-width:768px) {
@@ -217,18 +229,34 @@ a:hover {
     }
 }
 
-/*  */
+/* Enlarging images on mouse hover */
 @keyframes scale-image {
-    from {
-        width: auto;
+     from {
+        width: 200px;
         height: 200px;
     }
     to {
-        width: auto;
+        width: 250px;
         height: 250px;
     }
 }
 .card:hover img {
     animation-name: scale-image;
+    animation-duration: 2s;
+}
+
+@keyframes scale-image-first-img {
+    from {
+        width: 250px;
+        height: 250px;
+    }
+
+    to {
+        width: 300px;
+        height: 300px;
+    }
+}
+.card:hover #first-img {
+    animation-name: scale-image-first-img;
     animation-duration: 2s;
 }
